@@ -8,7 +8,7 @@ public class BinarySearchTree {
     }
 
     public void addNode(Integer data) {
-        if (data != null) { //если добавляем не нулевое значение
+        if (data != null) { //if we add a nonzero value
             if (this.root == null) {
                 this.root = new Node(data);
                 this.root.setParent((Node) null);
@@ -85,7 +85,7 @@ public class BinarySearchTree {
         return search(root, val);
     }
 
-    private Node search(Node r, int data) { //r - наше, data - искомое
+    private Node search(Node r, int data) { //r - our, data - the required
         if (r == null || r.getData() == data) return r;
         if (r.getData() > data)
             return search(r.getLeft(), data);
@@ -115,7 +115,7 @@ public class BinarySearchTree {
         }
     }
 
-    public int getHeight(Node root) { //высота по узлу
+    public int getHeight(Node root) { //node height
         if (root == null)
             return -1;
         else
@@ -141,7 +141,7 @@ public class BinarySearchTree {
         System.out.println();
     }
 
-    private void inorder(Node r) {  //симметричный, в отсортированном порядке
+    private void inorder(Node r) {  //symmetric, sorted order
         if (r != null) {
             inorder(r.getLeft());
             System.out.print(r.getData() + " ");
@@ -149,7 +149,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void preorder() {   //прямой, в порядке: вершина, левое поддерево, правое поддерево
+    public void preorder() {   //straight, ok: top, left subtree, right subtree
         preorder(root);
         System.out.println();
     }
@@ -167,7 +167,7 @@ public class BinarySearchTree {
         System.out.println();
     }
 
-    private void postorder(Node r) {  //обратный, в порядке: левое поддерево, правое поддерево, вершина
+    private void postorder(Node r) {  //reverse, in order: left subtree, right subtree, top
         if (r != null) {
             postorder(r.getLeft());
             postorder(r.getRight());
