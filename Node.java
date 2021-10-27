@@ -1,9 +1,9 @@
 
 public class Node {
-    private Integer data; //значение
-    private Node left;   //левый потомок
-    private Node right;  //правый потомок
-    private Node parent; //родитель
+    private Integer data; //value
+    private Node left;   //left descendant
+    private Node right;  //right descendant
+    private Node parent; //parent
 
     Node(Integer data) {
         this.data = data;
