@@ -3,31 +3,31 @@ import java.util.*;
 
 class Task {
     static void task(BinarySearchTree tree) {
-        List<Node> deepest = new ArrayList<>(); //самые глубокие листья
-        getAllDeepestNodes(tree, tree.getRoot(), deepest); //получает все самые глубокие вершины
+        List<Node> deepest = new ArrayList<>(); //deepest leaves
+        getAllDeepestNodes(tree, tree.getRoot(), deepest); //gets all the deepest peaks
         List<Node> res = new ArrayList<>();
-        getParent(deepest, res); //res - итоговый путь от листа к корню
-        res.addAll(deepest); //добавим самые глубокие листья
+        getParent(deepest, res); //res - final path from leaf to root
+        res.addAll(deepest); //add the deepest leaves
         int q = func(tree);
         Comparator<Node> comparator = Comparator.comparing(Node::getData);
-        res.sort(comparator); //сортировка по значению
+        res.sort(comparator); //sort by value
 
         System.out.println();
         if (res.size() != 0) {
-            System.out.print("Все искомые узлы: ");
+            System.out.print("All required nodes: ");
             for (Node i : res) {
                 System.out.print(i.getData() + " ");
             }
             System.out.println();
             tree.deleteRight(res.get(0).getData());
             tree.deleteRight(res.get(q).getData());
-        } else System.out.println("Нечего удалять");
-        System.out.println("Прямой обход:");
+        } else System.out.println("There is nothing to delete.");
+        System.out.println("Backtracking:");
         tree.preorder();
         System.out.println();
-        System.out.println("Обратный обход: ");
+        System.out.println("Direct traversal: ");
         tree.inorder();
-        System.out.println("Симметричный обход: ");
+        System.out.println("Symmetric traversal: ");
         tree.postorder();
     }
 
